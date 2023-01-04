@@ -227,7 +227,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-yarn.lock
+HeroesProject/yarn.lock
 
 ### ReactNative.Buck Stack ###
 buck-out/

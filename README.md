@@ -3,6 +3,7 @@
 API DOCUMENTION : https://superheroapi.com/
 
 
+Cett application permet de lister des super héros, de consulter leurs biographies mais également de liker et noter ses héros favoris.
 
 
 

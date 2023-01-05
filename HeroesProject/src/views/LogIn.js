@@ -1,15 +1,21 @@
-// import * as React from 'react';
-
-// const LogIn = ({navigation, route}) => {
-//     return (
-//       <SafeAreaView style={styles.fullScreen}>
-//         <TouchableOpacity>
-//           <Text>Page Login</Text>
-//         </TouchableOpacity>
-//       </SafeAreaView>
-//     );
-//   };
+import * as React from 'react';
+import { SafeAreaView, Text } from 'react-native';
 
 
+const LogInScreen = ({route, navigation}) => {
+    const {title, quantity} = route.params;
 
-// export default LogIn;
+    return (
+
+        <SafeAreaView>
+            <Text> Title : {title}</Text>
+            <Text> Quantity : {quantity}</Text>
+        </SafeAreaView>
+
+    );
+
+
+
+};
+
+export default LogInScreen;

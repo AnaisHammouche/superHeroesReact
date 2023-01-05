@@ -24,8 +24,6 @@ const Subscribe = props => {
     }
   }, [pwd, pwdConf]);
 
-  const newUser = () => {};
-
   useEffect(() => {
     setPwdIsValid(pwd.length < 3 ? false : true);
 
@@ -34,7 +32,7 @@ const Subscribe = props => {
     };
   }, [pwdIsValid, pwd, pwdConf]);
 
-  const myOnPressFunction = useCallback(async () => {
+  const subscribeFunction = useCallback(async () => {
     if (pwdIsValid && pwdConfIsValid) {
       let newUser = {
         FirstName: firstName,
@@ -46,7 +44,11 @@ const Subscribe = props => {
 
       try {
         const jsonValue = JSON.stringify(newUser);
+        console.log(jsonValue);
         await AsyncStorage.setItem('user_' + email, jsonValue);
+        console.log(
+          'test : ' + AsyncStorage.setItem('user_' + email, jsonValue),
+        );
       } catch (e) {
         // saving error
       }
@@ -61,7 +63,7 @@ const Subscribe = props => {
           '.',
       );
 
-     /*  try {
+      /*  try {
         const newUserofAsyncStorage = await AsyncStorage.getItem(
           'user_' + email,
         );
@@ -123,7 +125,7 @@ const Subscribe = props => {
       />
 
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.textInput} onPress={myOnPressFunction}>
+        <Text style={styles.textInput} onPress={subscribeFunction}>
           Envoyer
         </Text>
       </TouchableOpacity>

@@ -1,116 +1,85 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React from 'react';
-import type {Node} from 'react';
+import React, { useCallback } from 'react';
 import {
   SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
   View,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Text,
+  NavigationContainer
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-/* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
- * LTI update could not be added via codemod */
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+/* import AppNavigator from './src/components/navigators/AppNavigator'; */
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+
+const App = () => {
+  // const{navigation} = props;
+
+
+  // const goToLogIn = useCallback(() => {
+  //   navigation.navigate('LogIn');
+
+  // }, [navigation]);
+
+
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+    /* <NavigationContainer></NavigationContainer> */
+      /* <AppNavigator /> */
+    <SafeAreaView style={styles.screen}>
+      <Image
+        source={require('./src/home-picture.jpeg')}
+        style={styles.homeImg}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
+
+      <View style={styles.containerButtons}>
+        <TouchableOpacity
+          style={styles.homeButton}
+          //  onPress={goTo}
+        >
+          <Text style={styles.texts}>Inscription</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.homeButton}
+          //  onPress={goToLogIn}
+        >
+          <Text style={styles.texts}>Connexion</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  screen: {
+    flex: 1,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  homeImg: {
+    width: '100%',
+    height: '70%',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  containerButtons: {
+    flex:1,
+    flexDirection: 'column',
+    justifyContent:'space-evenly',
+    alignItems:'center',
   },
-  highlight: {
-    fontWeight: '700',
+  homeButton: {
+    borderWidth: 1,
+    borderRadius: 30,
+    width: '50%',
+    height:'9%',
+    borderColor: '#EEBB05',
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    elevation: 7,
+  },
+
+  texts: {
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 

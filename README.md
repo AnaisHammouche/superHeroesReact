@@ -13,3 +13,4 @@ Ce projet est développé par :
 - Anaïs HAMMOUCHE
 - Loïc GOURIOU
 - Mickael BARTHEMY
+- Théodule JANCHEN

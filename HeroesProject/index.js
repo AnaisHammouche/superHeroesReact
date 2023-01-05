@@ -7,4 +7,6 @@ import App from './App';
 import Subscribe from './src/views/Subscribe';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => Subscribe);
+import LogIn from './src/views/LogIn';
+import {name as appName} from './app.json';
+

@@ -16,18 +16,18 @@ Ce projet est développé par :
 - Théodule JANCHEN
 
 Les modules utilisés : 
-    Yarn
-    Module Vector-Icons
-    Module Async Storage
-    Module Navigation
-    Module Axios
-    Module Expo Image Picker
-    Module Latest
-    Module React
-    Module React Native 
-    Module React-native Contact
-    Module React-native Image Crop Picker
-    Module React-native Image Picker
-    Module React-native Paper
-    Module React-native Safe Area Context
+    Yarn,
+    Module Vector-Icons,
+    Module Async Storage,
+    Module Navigation,
+    Module Axios,
+    Module Expo Image Picker,
+    Module Latest,
+    Module React,
+    Module React Native, 
+    Module React-native Contact,
+    Module React-native Image Crop Picker,
+    Module React-native Image Picker,
+    Module React-native Paper,
+    Module React-native Safe Area Context,
     Module React-native Screens

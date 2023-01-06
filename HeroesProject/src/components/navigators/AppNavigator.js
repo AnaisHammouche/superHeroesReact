@@ -14,7 +14,7 @@ import Subscribe from '../../views/Subscribe';
 function AppNavigator() {
   return (
     <NavigationContainer independent={true}>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Bienvenue">
         <Stack.Screen name="ProfilScreen" component={ProfilScreen} />
         <Stack.Screen name="Bienvenue" component={HomeScreen} />
         <Stack.Screen name="Connexion" component={LogInScreen} />

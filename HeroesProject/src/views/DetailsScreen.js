@@ -1,8 +1,9 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {SafeAreaView, View, StyleSheet, Image, Text} from 'react-native';
 import api from '../api/api';
+import styles from '../style/detailsScreenStyle';
 
-const LogIn = () => {
+const DetailsScreen = () => {
   const [data, setData] = useState([]);
   const [data2, setData2] = useState([]);
 
@@ -15,7 +16,7 @@ const LogIn = () => {
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [loadData]);
 
   return (
     <SafeAreaView style={styles.screen}>
@@ -33,7 +34,7 @@ const LogIn = () => {
         <Text style={styles.nom}>{data.name + ''}</Text>
         <Text style={styles.title}>Biographie du héro</Text>
         <Text style={styles.ego}>Alter ego : {data['alter-egos'] + ''}</Text>
-        <Text style={styles.psd}>Pseudonyme(s) : {data.aliases + ''}</Text>
+        <Text style={styles.pseudo}>Pseudonyme(s) : {data.aliases + ''}</Text>
         <Text style={styles.date}>
           Lieu de naissance : {data['place-of-birth'] + ''}
         </Text>
@@ -48,71 +49,4 @@ const LogIn = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-  },
-  container1: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginTop: '10%',
-  },
-  container2: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-evenly',
-    alignItems: 'right',
-    marginBottom: '30%',
-    marginLeft: '5%',
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    color: 'grey',},
-  image: {
-    width: 170,
-    height: 170,
-    borderRadius: 100,
-    borderWidth: 5,
-    borderColor: '#fff',
-  },
-  nom: {
-    fontSize: 35,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-  },
-  ego: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    color: 'grey',
-  },
-  psd: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    color: 'grey',
-  },
-  date: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    color: 'grey',
-  },
-  apparition: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    color: 'grey',
-  },
-  publication: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    color: 'grey',
-  },
-});
-
-export default LogIn;
+export default DetailsScreen;

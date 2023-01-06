@@ -33,16 +33,28 @@ const App = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <FlatList
-        style={{flex: 1}}
+        style={{
+          flex: 1,
+          width: 170,
+          height: 170,
+          borderWidth: 5,
+          borderColor: '#fff',
+          flexDirection: 'column',
+          marginTop: '10%',
+          marginLeft: 140,
+        }}
         data={data}
         renderItem={({item}) => {
           return (
             <View>
-              <Text>{item.name}</Text>
+              <Text style={{fontSize: 15, fontWeight: 'bold', marginTop: 40}}>
+                {item.name}
+              </Text>
               <Image
                 source={{uri: item.image.url}}
-                style={{width: 50, height: 50}}
-                resizeMode="cover"></Image>
+                style={{width: 100, height: 100, borderRadius: 100}}
+                resizeMode="cover"
+              />
             </View>
           );
         }}

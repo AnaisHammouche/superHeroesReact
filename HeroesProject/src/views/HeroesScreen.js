@@ -1,4 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
+import styles from '../style/heroesScreenStyle';
+import {useNavigation} from '@react-navigation/native';
+
 import {
   SafeAreaView,
   View,
@@ -11,9 +14,10 @@ import {
   FlatList,
   ScrollView,
 } from 'react-native';
+
 import api from '../api/api';
 
-const App = () => {
+const HeroesScreen = () => {
   const [data, setData] = useState([]);
 
   const loadData = useCallback(async () => {
@@ -24,15 +28,21 @@ const App = () => {
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [loadData]);
 
   if (!data) {
     return <Text>Chargement en cours ...</Text>;
   }
 
+  const goToDetailHero = useCallback(async () => {
+   /*  const navigation = useNavigation();
+    navigation.navigate('HeroesScreen'); */
+    alert('bouton cliqué !')
+  });
+
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <Text
+    <SafeAreaView>
+     <Text
         style={{
           fontSize: 25,
           fontWeight: 'bold',
@@ -42,42 +52,22 @@ const App = () => {
         Liste des SuperHéros
       </Text>
       <FlatList
-        style={{
-          flex: 1,
-          borderWidth: 5,
-          borderColor: '#fff',
-          flexDirection: 'column',
-          marginTop: '10%',
-          margin: 0,
-        }}
         data={data}
         renderItem={({item}) => {
           return (
-            <View>
-              <Text
-                style={{
-                  fontSize: 15,
-                  fontWeight: 'bold',
-                  marginTop: 40,
-                  marginLeft: 140,
-                }}>
-                {item.name}
-              </Text>
-              <Image
-                source={{uri: item.image.url}}
-                style={{
-                  width: 100,
-                  height: 100,
-                  borderRadius: 100,
-                  marginLeft: 140,
-                }}
-                resizeMode="cover"
-              />
-            </View>
+            <TouchableOpacity onPress={goToDetailHero}>
+              <View style={styles.view}>
+                <Text style={styles.title}>{item.name}</Text>
+                <Image
+                  source={{uri: item.image.url}}
+                  style={styles.picture}
+                  resizeMode="cover"></Image>
+              </View>
+            </TouchableOpacity>
           );
         }}
       />
     </SafeAreaView>
   );
 };
-export default App;
+export default HeroesScreen;

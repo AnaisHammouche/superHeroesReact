@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-    alignItems: 'right',
+    alignItems: 'flex-start',
     marginBottom: '30%',
     marginLeft: '5%',
   },

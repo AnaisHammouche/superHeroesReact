@@ -20,13 +20,13 @@ const App = ({navigation: {navigate}}) => {
 
   const goToLoginPage = useCallback(() => {
     /* console.log('navigation : ' + {navigation}); */
-    navigate('LogIn', {title: 'toto', quantity: 10});
+    navigate('Connexion', {title: 'toto', quantity: 10});
   }, [navigate]);
 
   // A RAJOUTER UNE FOIS QUE CLAIRE AURA PUSH SA PAGE
   const goToSubscribe = useCallback(() => {
     console.log('navigation : ' + {navigation});
-    navigate('Subscribe', {title: 'lulu', quantity: 20});
+    navigate('Inscription', {title: 'lulu', quantity: 20});
   }, [navigation]);
 
   /* return (

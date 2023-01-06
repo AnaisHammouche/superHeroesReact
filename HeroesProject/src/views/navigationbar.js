@@ -2,7 +2,16 @@ import {Text, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native';
 
 const NavigationBar = () => {
   return (
-    <SafeAreaView style={styles.container}>
+
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Accueil" component={HomeScreen} />
+        <Tab.Screen name="Recherche" component={SearchScreen} />
+        <Tab.Screen name="Profil" component={ProfilScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
+
+    {/* <SafeAreaView style={styles.container}>
       <TouchableOpacity style={styles.option}>
         <Text style={styles.text}>Accueil</Text>
       </TouchableOpacity>
@@ -12,7 +21,7 @@ const NavigationBar = () => {
       <TouchableOpacity style={styles.option}>
         <Text style={styles.text}>Profil</Text>
       </TouchableOpacity>
-    </SafeAreaView>
+    </SafeAreaView> */}
   );
 };
 

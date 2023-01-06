@@ -42,15 +42,6 @@ const HeroesScreen = () => {
 
   return (
     <SafeAreaView>
-     <Text
-        style={{
-          fontSize: 25,
-          fontWeight: 'bold',
-          textTransform: 'uppercase',
-          marginLeft: 50,
-        }}>
-        Liste des SuperHéros
-      </Text>
       <FlatList
         data={data}
         renderItem={({item}) => {

@@ -32,6 +32,15 @@ const App = () => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
+      <Text
+        style={{
+          fontSize: 25,
+          fontWeight: 'bold',
+          textTransform: 'uppercase',
+          marginLeft: 50,
+        }}>
+        Liste des SuperHéros
+      </Text>
       <FlatList
         style={{
           flex: 1,
@@ -39,17 +48,29 @@ const App = () => {
           borderColor: '#fff',
           flexDirection: 'column',
           marginTop: '10%',
+          margin: 0,
         }}
         data={data}
         renderItem={({item}) => {
           return (
             <View>
-              <Text style={{fontSize: 15, fontWeight: 'bold', marginTop: 40}}>
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: 'bold',
+                  marginTop: 40,
+                  marginLeft: 140,
+                }}>
                 {item.name}
               </Text>
               <Image
                 source={{uri: item.image.url}}
-                style={{width: 100, height: 100, borderRadius: 100}}
+                style={{
+                  width: 100,
+                  height: 100,
+                  borderRadius: 100,
+                  marginLeft: 140,
+                }}
                 resizeMode="cover"
               />
             </View>

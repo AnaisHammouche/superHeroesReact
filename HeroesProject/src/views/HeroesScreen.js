@@ -35,13 +35,10 @@ const App = () => {
       <FlatList
         style={{
           flex: 1,
-          width: 170,
-          height: 170,
           borderWidth: 5,
           borderColor: '#fff',
           flexDirection: 'column',
           marginTop: '10%',
-          marginLeft: 140,
         }}
         data={data}
         renderItem={({item}) => {

@@ -7,8 +7,8 @@ const Stack = createNativeStackNavigator();
 import LogInScreen from '../../views/LogIn';
 import HomeScreen from '../../views/HomeScreen';
 import HeroesScreen from '../../views/HeroesScreen';
+import DetailsScreen from '../../views/DetailsScreen';
 import ProfilScreen from '../../views/ProfilScreen';
-
 import Subscribe from '../../views/Subscribe';
 
 function AppNavigator() {
@@ -20,6 +20,7 @@ function AppNavigator() {
         <Stack.Screen name="Connexion" component={LogInScreen} />
         <Stack.Screen name="Liste des Héros" component={HeroesScreen} />
         <Stack.Screen name="Inscription" component={Subscribe} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

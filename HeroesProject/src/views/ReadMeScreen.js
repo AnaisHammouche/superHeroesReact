@@ -2,6 +2,7 @@ import React from 'react';
 import {SafeAreaView, Text, StyleSheet, ScrollView} from 'react-native';
 import {Card, Button, Title, Paragraph} from 'react-native-paper';
 
+import styles from '../style/readMeScreenStyle';
 const ReadMeScreen = () => {
   return (
     <SafeAreaView style={styles.screen}>
@@ -25,47 +26,29 @@ const ReadMeScreen = () => {
                 un héro {'\n'}- Liker et noter ses héros favoris{'\n'}
               </Text>
               <Text>
+
                 {'\n'}Les modules utilisés au sein de cette application sont :{'\n'}- Yarn {'\n'}- Module Vector-Icons{'\n'}- Module Async
                 Storage{'\n'}- Module Navigation{'\n'}- Module Axios{'\n'}- Module Expo Image Picker{'\n'}
                 - Module Latest{'\n'}- Module React{'\n'}- Module React Native{'\n'}- Module
                 React-native Contact{'\n'}- Module React-native Image Crop Picker{'\n'}- Module
                 React-native Image Picker{'\n'}- Module React-native Paper{'\n'}- Module
                 React-native Safe Area Context{'\n'}- Module React-native Screens
+
               </Text>
             </Paragraph>
           </Card.Content>
         </Card>
         <Card style={styles.container}>
           <Paragraph style={styles.contents}>
-            Ce projet est développé par :  {'\n'}- Claire MATHIRON {'\n'}- Anaïs HAMMOUCHE {'\n'}- Loïc
-            GOURIOU {'\n'}- Mickael BARTHEMY {'\n'}- Théodule JANCHEN
+
+            Ce projet est développé par : Claire MATHIRON, Anaïs HAMMOUCHE, Loïc
+            GOURIOU, Mickael BARTHEMY & Théodule JANCHEN.
+
           </Paragraph>
         </Card>
       </ScrollView>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-  },
-  container: {
-    alignContent: 'center',
-    margin: 20,
-  },
-  title: {
-    fontWeight: 'bold',
-  },
-  content: {
-    flexDirection: 'column',
-    textAlign: 'justify',
-  },
-  contents: {
-    padding: 14,
-    fontWeight: 'bold',
-    textAlign: 'justify',
-  },
-});
 
 export default ReadMeScreen;

@@ -27,19 +27,19 @@ const navigation = useNavigation();
 }, [navigation]);
 
 // A RAJOUTER UNE FOIS QUE CLAIRE AURA PUSH SA PAGE
-/* const goToSubscribe = useCallback(() => { 
+const goToSubscribe = useCallback(() => { 
   console.log('navigation : ' + {navigation});
   navigate('Subscribe', {title: 'lulu', quantity: 20});
-}, [navigation]); */ 
+}, [navigation]);
 
 
-return (
+/* return (
   <ReadMeScreen/>
-)
+) */
 
-return (
+/* return (
   <ProfilScreen/>
-);
+); */
 
 
   return (
@@ -53,7 +53,7 @@ return (
       <View style={styles.containerButtons}>
         <TouchableOpacity
           style={styles.homeButton}
-           /* onPress={goToSubscribe} */
+           onPress={goToSubscribe}
         >
           <Text style={styles.texts}>Inscription</Text>
         </TouchableOpacity>

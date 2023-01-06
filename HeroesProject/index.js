@@ -13,4 +13,4 @@ import DetailsScreen from './src/views/DetailsScreen';
 import ProfilScreen from './src/views/ProfilScreen';
 import ReadMeScreen from './src/views/ReadMeScreen';
 
-AppRegistry.registerComponent(appName, () => ReadMeScreen);
+AppRegistry.registerComponent(appName, () => App);

@@ -32,7 +32,7 @@ const ProfilScreen = () => {
 
       <Text style={styles.texts}>Nom d'utilisateur</Text>
       <View style={styles.placeholder}>
-        <Text>Remplacer avec le bon PROPS</Text>
+        <Text></Text>
       </View>
     </SafeAreaView>
   );

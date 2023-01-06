@@ -17,8 +17,9 @@ import {
 
 import api from '../api/api';
 
-const HeroesScreen = () => {
+const HeroesScreen = ({navigation}) => {
   const [data, setData] = useState([]);
+  // const {navigation} = props;
 
   const loadData = useCallback(async () => {
     console.log(1);
@@ -30,23 +31,21 @@ const HeroesScreen = () => {
     loadData();
   }, [loadData]);
 
+  const goToDetailHero = item => {
+    const itemId = item.id;
+    navigation.navigate('Details', {idHero: itemId});
+  };
+
   if (!data) {
     return <Text>Chargement en cours ...</Text>;
   }
-
-  const goToDetailHero = useCallback(async () => {
-   /*  const navigation = useNavigation();
-    navigation.navigate('HeroesScreen'); */
-    alert('bouton cliqué !')
-  });
-
   return (
     <SafeAreaView>
       <FlatList
         data={data}
         renderItem={({item}) => {
           return (
-            <TouchableOpacity onPress={goToDetailHero}>
+            <TouchableOpacity onPress={() => goToDetailHero(item)}>
               <View style={styles.view}>
                 <Text style={styles.title}>{item.name}</Text>
                 <Image

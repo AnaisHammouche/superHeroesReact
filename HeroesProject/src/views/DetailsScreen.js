@@ -13,16 +13,17 @@ import styles from '../style/detailsScreenStyle';
 import {handlePress} from 'react-native-paper/lib/typescript/components/RadioButton/utils';
 
 
-const DetailsScreen = () => {
+const DetailsScreen = ({navigation, route}) => {
   const [data, setData] = useState([]);
   const [data2, setData2] = useState([]);
+  const {idHero} = route.params;
 
   const loadData = useCallback(async () => {
-    const res = await api.getHeroeBiography(70);
-    const res2 = await api.getHeroeImage(70);
+    const res = await api.getHeroeBiography(idHero);
+    const res2 = await api.getHeroeImage(idHero);
     setData(res);
     setData2(res2);
-  }, []);
+  }, [idHero]);
   const [isLiked, setIsLiked] = useState(false);
 
   const handlePress = () => {

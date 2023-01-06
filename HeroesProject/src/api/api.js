@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const getAllHeroes = async id => {
+const getAllHeroes = async heroes => {
 
   try {
     const res = await axios.get(
-      'https://www.superheroapi.com/api.php/902649214076991/1' + id,
+      'https://www.superheroapi.com/api.php/902649214076991/search/e',
     );
 
     return res.data;

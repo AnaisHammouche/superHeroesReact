@@ -36,4 +36,16 @@ const getHeroeImage = async id => {
   }
 };
 
-export default {getAllHeroes, getHeroeBiography, getHeroeImage};
+const heroSearch = async search => {
+  try {
+    const res = await axios.get(
+      'https://www.superheroapi.com/api.php/902649214076991/search/' + search,
+    );
+
+    return res.data;
+  } catch (e) {
+    console.log(e.stack);
+  }
+};
+
+export default {getAllHeroes, getHeroeBiography, getHeroeImage, heroSearch};

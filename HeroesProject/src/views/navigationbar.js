@@ -2,8 +2,7 @@ import {Text, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native';
 
 
 
-
-const NavigationBar = () => {
+const NavigationBar = ({navigation}) => {
 
 const Tab = createBottomTabNavigator();
 
@@ -11,23 +10,20 @@ const Tab = createBottomTabNavigator();
 
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Accueil" component={HomeScreen} />
-        <Tab.Screen name="Recherche" component={SearchScreen} />
-        <Tab.Screen name="Profil" component={ProfilScreen} />
+        <Tab.Screen name="Accueil" component={HomeScreen} onPress={() => {
+  
+        navigation.navigate('HomeScreen');
+      }} />
+        <Tab.Screen name="Recherche" component={SearchScreen}onPress={() => {
+
+        navigation.navigate('SearchScreen');
+      }} />
+        <Tab.Screen name="Profil" component={ProfilScreen} onPress={() => {
+
+        navigation.navigate('ProfilScreen');
+      }} />
       </Tab.Navigator>
     </NavigationContainer>
-
-    {/* <SafeAreaView style={styles.container}>
-      <TouchableOpacity style={styles.option}>
-        <Text style={styles.text}>Accueil</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.option}>
-        <Text style={styles.text}>Recherche</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.option}>
-        <Text style={styles.text}>Profil</Text>
-      </TouchableOpacity>
-    </SafeAreaView> */}
   );
 };
 

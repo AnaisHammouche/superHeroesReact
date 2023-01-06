@@ -19,7 +19,6 @@ import api from '../api/api';
 
 const HeroesScreen = ({navigation}) => {
   const [data, setData] = useState([]);
-  // const {navigation} = props;
 
   const loadData = useCallback(async () => {
     console.log(1);
@@ -39,8 +38,21 @@ const HeroesScreen = ({navigation}) => {
   if (!data) {
     return <Text>Chargement en cours ...</Text>;
   }
+
   return (
     <SafeAreaView>
+      <TouchableOpacity /*{onPress: {goToProfil}*/>
+        <Text>Profil</Text>
+      </TouchableOpacity>
+      <Text
+        style={{
+          fontSize: 25,
+          fontWeight: 'bold',
+          textTransform: 'uppercase',
+          marginLeft: 50,
+        }}>
+        Liste des SuperHéros
+      </Text>
       <FlatList
         data={data}
         renderItem={({item}) => {
@@ -51,7 +63,8 @@ const HeroesScreen = ({navigation}) => {
                 <Image
                   source={{uri: item.image.url}}
                   style={styles.picture}
-                  resizeMode="cover"></Image>
+                  resizeMode="cover"
+                />
               </View>
             </TouchableOpacity>
           );

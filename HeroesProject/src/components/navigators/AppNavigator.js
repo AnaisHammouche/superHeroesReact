@@ -8,12 +8,14 @@ import LogInScreen from '../../views/LogIn';
 import HomeScreen from '../../views/HomeScreen';
 import HeroesScreen from '../../views/HeroesScreen';
 import DetailsScreen from '../../views/DetailsScreen';
+import ProfilScreen from '../../views/ProfilScreen';
 import Subscribe from '../../views/Subscribe';
 
 function AppNavigator() {
   return (
     <NavigationContainer independent={true}>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Bienvenue">
+        <Stack.Screen name="ProfilScreen" component={ProfilScreen} />
         <Stack.Screen name="Bienvenue" component={HomeScreen} />
         <Stack.Screen name="Connexion" component={LogInScreen} />
         <Stack.Screen name="Liste des Héros" component={HeroesScreen} />

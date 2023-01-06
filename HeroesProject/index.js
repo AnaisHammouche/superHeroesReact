@@ -4,7 +4,8 @@
 
 import {AppRegistry} from 'react-native';
 import App from './App';
-import HeroesScreen from './src/views/HeroesScreen';
+import Subscribe from './src/views/Subscribe';
 import {name as appName} from './app.json';
-
-AppRegistry.registerComponent(appName, () => HeroesScreen);
+import SearchBar from './src/views/SearchScreen';
+import LogIn from './src/views/LogIn';
+AppRegistry.registerComponent(appName, () => App);

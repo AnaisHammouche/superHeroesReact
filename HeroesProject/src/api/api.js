@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const getAllHeroes = async heroes => {
-
   try {
     const res = await axios.get(
       'https://www.superheroapi.com/api.php/902649214076991/search/e',
@@ -13,4 +12,28 @@ const getAllHeroes = async heroes => {
   }
 };
 
-export default {getAllHeroes};
+const getHeroeBiography = async id => {
+  try {
+    const res = await axios.get(
+      'https://www.superheroapi.com/api.php/902649214076991/' + id + '/biography',
+    );
+
+    return res.data;
+  } catch (e) {
+    console.log(e.stack);
+  }
+};
+
+const getHeroeImage = async id => {
+  try {
+    const res = await axios.get(
+        'https://www.superheroapi.com/api.php/902649214076991/' + id + '/image',
+    );
+
+    return res.data;
+  } catch (e) {
+    console.log(e.stack);
+  }
+};
+
+export default {getAllHeroes, getHeroeBiography, getHeroeImage};

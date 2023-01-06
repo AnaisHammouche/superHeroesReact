@@ -18,11 +18,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   homeButton: {
-    borderWidth: 1,
     borderRadius: 30,
     width: '50%',
     height: '9%',
-    borderColor: '#EEBB05',
+    backgroundColor: '#EEBB05',
     shadowOpacity: 0.29,
     shadowRadius: 4.65,
     elevation: 7,
@@ -30,6 +29,7 @@ const styles = StyleSheet.create({
 
   texts: {
     fontWeight: 'bold',
+    color:'white',
     textAlign: 'center',
   },
 });

@@ -8,6 +8,7 @@ import {
   Text,
 } from 'react-native';
 
+import styles from '../style/homeScreenStyle';
 import ReadMeScreen from './ReadMeScreen';
 
 import {useNavigation} from '@react-navigation/native';
@@ -20,7 +21,7 @@ const App = ({navigation: {navigate}}) => {
   const goToLoginPage = useCallback(() => {
     /* console.log('navigation : ' + {navigation}); */
     navigate('LogIn', {title: 'toto', quantity: 10});
-  }, []);
+  }, [navigate]);
 
   // A RAJOUTER UNE FOIS QUE CLAIRE AURA PUSH SA PAGE
   const goToSubscribe = useCallback(() => {
@@ -55,36 +56,5 @@ const App = ({navigation: {navigate}}) => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-  },
-  homeImg: {
-    width: '100%',
-    height: '70%',
-  },
-  containerButtons: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-  },
-  homeButton: {
-    borderWidth: 1,
-    borderRadius: 30,
-    width: '50%',
-    height: '9%',
-    borderColor: '#EEBB05',
-    shadowOpacity: 0.29,
-    shadowRadius: 4.65,
-    elevation: 7,
-  },
-
-  texts: {
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-});
 
 export default App;

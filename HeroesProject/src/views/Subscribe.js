@@ -77,7 +77,7 @@ const Subscribe = props => {
     }
 
     //  pwdConfIsValid ? alert('Bonjour ' + firstName + ' ' + name + ' , votre mot de passe est :' + pwd + ' .'): alert('raté !')
-  }, [pwdIsValid, pwdConfIsValid, firstName, name, pwd, email]);
+  }, [pwdIsValid, pwdConfIsValid, firstName, name, pwd, email, navigation]);
 
   return (
     <SafeAreaView style={styles.screen}>

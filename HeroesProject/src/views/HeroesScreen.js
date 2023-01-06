@@ -41,7 +41,6 @@ const HeroesScreen = ({navigation}) => {
 
   return (
     <SafeAreaView>
-      
       <FlatList
         data={data}
         renderItem={({item}) => {

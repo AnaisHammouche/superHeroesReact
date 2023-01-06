@@ -1,4 +1,7 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import styles from '../style/loginStyle';
+
 import {
   SafeAreaView,
   View,
@@ -10,14 +13,93 @@ import {
 } from 'react-native';
 
 const LogIn = () => {
+  const [emailLogin, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [userExists, setUserExists] = useState(false);
+  const [passwordIsValid, setPasswordIsValid] = useState(false);
+
+  const getData = async () => {
+    try {
+      console.log(emailLogin);
+      const value1 = await AsyncStorage.getItem('user_' + emailLogin);
+      const value = JSON.parse(value1);
+      console.log(value);
+      if (value !== null) {
+        setUserExists(true);
+      } else {
+        setUserExists(false);
+      }
+      console.log(userExists);
+      return value != null ? JSON.parse(value) : null;
+    } catch (e) {
+      // error reading value
+    }
+  };
+
+  const loginFunction = useCallback(async () => {
+    try {
+    console.log(emailLogin);
+
+      console.log(password);
+      const value = await AsyncStorage.getItem('user_' + emailLogin);
+      console.log(value);
+      // console.log(value);
+      if (value !== null) {
+        setUserExists(true);
+        console.log('userexists doit etre true : ' + userExists);
+      } else {
+        setUserExists(false);
+        console.log('userexists doit etre false : ' + userExists);
+      }
+      console.log(userExists);
+      if (value.password === password) {
+        setPasswordIsValid(true);
+      } else {
+        setPasswordIsValid(false);
+      }
+      return value != null ? JSON.parse(value) : null;
+    } catch (e) {
+      // error reading value
+    }
+    //claire@gmail.com
+    if (userExists && passwordIsValid) {
+      alert('connecté !');
+
+      /*  try {
+        const newUserofAsyncStorage = await AsyncStorage.getItem(
+          'user_' + email,
+        );
+        console.log(newUserofAsyncStorage);
+        if (newUserofAsyncStorage !== null) {
+          // value previously stored
+        }
+      } catch (e) {
+        console.log(e);
+      } */
+    } else {
+      alert('raté !');
+    }
+
+    //  pwdConfIsValid ? alert('Bonjour ' + firstName + ' ' + name + ' , votre mot de passe est :' + pwd + ' .'): alert('raté !')
+  }, [userExists, passwordIsValid, emailLogin, password]);
+
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.container}>
         <Text style={styles.title}>CONNEXION</Text>
         <View style={styles.inputContainer}>
-          <Text style={styles.textInput}>Nom d'utilisateur</Text>
-          <TextInput style={styles.input} />
-          <Text style={styles.textInput}>Mot de passe</Text>
+          <Text style={styles.textInput}>E-mail</Text>
+          <TextInput
+            style={styles.input}
+            keyboardType="default"
+            onChangeText={setEmail}
+          />
+          <Text
+            style={styles.textInput}
+            keyboardType="default"
+            onChangeText={setPassword}>
+            Mot de passe
+          </Text>
           <TextInput style={styles.input} secureTextEntry={true} />
         </View>
         <View style={styles.connectButtonsContainer}>
@@ -38,69 +120,13 @@ const LogIn = () => {
           style={styles.button}
           //  onPress={@goToHeroesList}
         >
-          <Text style={styles.textConnection}>Connexion</Text>
+          <Text style={styles.textConnection} onPress={getData}>
+            Connexion
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    marginBottom: '30%',
-  },
-  title: {
-    fontWeight: 'bold',
-    textAlign: 'center',
-    fontSize: 40,
-    marginTop: '30%',
-    marginBottom: 20,
-  },
-  inputContainer: {
-    width: '100%',
-  },
-  textInput: {
-    marginLeft: 39,
-  },
-  input: {
-    marginBottom: 20,
-    width: '80%',
-    height: 40,
-    textAlign: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: 'black',
-    alignSelf: 'center',
-  },
-  connectButtonsContainer: {
-    flexDirection: 'row',
-  },
-  connectButtons: {
-    marginRight: 40,
-    marginLeft: 40,
-    width: 75,
-    height: 75,
-  },
-  button: {
-    borderRadius: 30,
-    width: '50%',
-    height: 40,
-    backgroundColor: '#EEBB05',
-    shadowOpacity: 0.29,
-    elevation: 7,
-  },
-  textConnection: {
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: 'white',
-    marginTop: 9,
-  },
-});
 
 export default LogIn;

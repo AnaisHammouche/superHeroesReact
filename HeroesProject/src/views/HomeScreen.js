@@ -22,9 +22,9 @@ const App = ({ navigation: { navigate } }) => {
 const navigation = useNavigation(); 
 
   const goToLoginPage = useCallback(() => { 
-    console.log('navigation : ' + {navigation});
+    /* console.log('navigation : ' + {navigation}); */
     navigate('LogIn', {title: 'toto', quantity: 10});
-}, [navigation]);
+}, []);
 
 // A RAJOUTER UNE FOIS QUE CLAIRE AURA PUSH SA PAGE
 const goToSubscribe = useCallback(() => { 
@@ -37,9 +37,9 @@ const goToSubscribe = useCallback(() => {
   <ReadMeScreen/>
 ) */
 
-/* return (
+return (
   <ProfilScreen/>
-); */
+);
 
 
   return (

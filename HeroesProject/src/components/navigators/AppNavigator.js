@@ -6,6 +6,8 @@ const Stack = createNativeStackNavigator();
 
 import LogInScreen from '../../views/LogIn';
 import HomeScreen from '../../views/HomeScreen';
+import HeroesScreen from '../../views/HeroesScreen';
+
 import Subscribe from '../../views/Subscribe';
 
 function AppNavigator() {
@@ -14,6 +16,7 @@ function AppNavigator() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="LogIn" component={LogInScreen} />
+        <Stack.Screen name="HeroesScreen" component={HeroesScreen} />
         <Stack.Screen name="Subscribe" component={Subscribe} />
       </Stack.Navigator>
     </NavigationContainer>

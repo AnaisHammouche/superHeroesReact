@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-evenly',
     alignItems: 'center',
+    backgroundColor: 'white',
   },
   title: {
     fontSize: 30,
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontSize: 22,
+    fontWeight: 'bold',
   },
 });
 

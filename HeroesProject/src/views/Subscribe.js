@@ -1,10 +1,12 @@
 import React, {useState, useEffect, useMemo, useCallback} from 'react';
 import {SafeAreaView, Text, TextInput, TouchableOpacity} from 'react-native';
 
+import {useNavigation} from '@react-navigation/native';
 import styles from '../style/subscribeStyle';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Subscribe = props => {
+  const navigation = useNavigation();
   const [firstName, setFirstName] = useState('firstName');
   const [name, setName] = useState('name');
   const [email, setEmail] = useState();
@@ -45,7 +47,6 @@ const Subscribe = props => {
       try {
         const jsonValue = JSON.stringify(newUser);
         await AsyncStorage.setItem('user_' + email, jsonValue);
-     
       } catch (e) {
         // saving error
       }
@@ -59,7 +60,7 @@ const Subscribe = props => {
           pwd +
           '.',
       );
-
+      navigation.navigate('Liste des Héros');
       /*  try {
         const newUserofAsyncStorage = await AsyncStorage.getItem(
           'user_' + email,
@@ -80,8 +81,6 @@ const Subscribe = props => {
 
   return (
     <SafeAreaView style={styles.screen}>
-      <Text style={styles.title}>Inscription</Text>
-
       <TextInput
         style={styles.input}
         placeholder="Prénom"

@@ -1,6 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from '../style/loginStyle';
+// import {useNavigation} from '@react-navigation/native';
 
 import {
   SafeAreaView,
@@ -12,76 +13,33 @@ import {
   TextInput,
 } from 'react-native';
 
-const LogIn = () => {
-  const [emailLogin, setEmail] = useState();
+const LogIn = (/* {navigation: {navigate}} */) => {
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [userExists, setUserExists] = useState(false);
-  const [passwordIsValid, setPasswordIsValid] = useState(false);
-
-  const getData = async () => {
-    try {
-      console.log(emailLogin);
-      const value1 = await AsyncStorage.getItem('user_' + emailLogin);
-      const value = JSON.parse(value1);
-      console.log(value);
-      if (value !== null) {
-        setUserExists(true);
-      } else {
-        setUserExists(false);
-      }
-      console.log(userExists);
-      return value != null ? JSON.parse(value) : null;
-    } catch (e) {
-      // error reading value
-    }
-  };
 
   const loginFunction = useCallback(async () => {
-    try {
-    console.log(emailLogin);
+    console.log(password);
+    const value = await AsyncStorage.getItem('user_' + email);
 
-      console.log(password);
-      const value = await AsyncStorage.getItem('user_' + emailLogin);
-      console.log(value);
-      // console.log(value);
-      if (value !== null) {
-        setUserExists(true);
-        console.log('userexists doit etre true : ' + userExists);
-      } else {
-        setUserExists(false);
-        console.log('userexists doit etre false : ' + userExists);
-      }
-      console.log(userExists);
-      if (value.password === password) {
-        setPasswordIsValid(true);
-      } else {
-        setPasswordIsValid(false);
-      }
-      return value != null ? JSON.parse(value) : null;
-    } catch (e) {
-      // error reading value
+    if (!value) {
+      alert("l'utilisateur n'existe pas !");
+      return;
     }
-    //claire@gmail.com
-    if (userExists && passwordIsValid) {
-      alert('connecté !');
 
-      /*  try {
-        const newUserofAsyncStorage = await AsyncStorage.getItem(
-          'user_' + email,
-        );
-        console.log(newUserofAsyncStorage);
-        if (newUserofAsyncStorage !== null) {
-          // value previously stored
-        }
-      } catch (e) {
-        console.log(e);
-      } */
-    } else {
-      alert('raté !');
+    const user = JSON.parse(value);
+
+    console.log('user', user);
+
+    if (user.Password !== password) {
+      alert('le mdp est faux.');
+      return;
     }
+    /* const navigation = useNavigation(); */
+    /*  navigate('HeroesScreen'); */
+    alert('connecté !');
 
     //  pwdConfIsValid ? alert('Bonjour ' + firstName + ' ' + name + ' , votre mot de passe est :' + pwd + ' .'): alert('raté !')
-  }, [userExists, passwordIsValid, emailLogin, password]);
+  }, [email, /* navigate, */ password]);
 
   return (
     <SafeAreaView style={styles.screen}>
@@ -92,15 +50,18 @@ const LogIn = () => {
           <TextInput
             style={styles.input}
             keyboardType="default"
+            value={email}
             onChangeText={setEmail}
           />
-          <Text
-            style={styles.textInput}
-            keyboardType="default"
-            onChangeText={setPassword}>
+          <Text style={styles.textInput} keyboardType="default">
             Mot de passe
           </Text>
-          <TextInput style={styles.input} secureTextEntry={true} />
+          <TextInput
+            style={styles.input}
+            secureTextEntry={true}
+            value={password}
+            onChangeText={setPassword}
+          />
         </View>
         <View style={styles.connectButtonsContainer}>
           <TouchableOpacity>
@@ -120,7 +81,7 @@ const LogIn = () => {
           style={styles.button}
           //  onPress={@goToHeroesList}
         >
-          <Text style={styles.textConnection} onPress={getData}>
+          <Text style={styles.textConnection} onPress={loginFunction}>
             Connexion
           </Text>
         </TouchableOpacity>

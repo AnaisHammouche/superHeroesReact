@@ -44,11 +44,8 @@ const Subscribe = props => {
 
       try {
         const jsonValue = JSON.stringify(newUser);
-        console.log(jsonValue);
         await AsyncStorage.setItem('user_' + email, jsonValue);
-        console.log(
-          'test : ' + AsyncStorage.setItem('user_' + email, jsonValue),
-        );
+     
       } catch (e) {
         // saving error
       }

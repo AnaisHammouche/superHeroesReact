@@ -38,7 +38,7 @@ const LogIn = () => {
 
     alert('connecté !');
 
-    navigation.navigate('HeroesScreen');
+    navigation.navigate('Liste des Héros');
 
     //  pwdConfIsValid ? alert('Bonjour ' + firstName + ' ' + name + ' , votre mot de passe est :' + pwd + ' .'): alert('raté !')
   }, [email, navigation, password]);

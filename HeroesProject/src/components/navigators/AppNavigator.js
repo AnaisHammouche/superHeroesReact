@@ -14,10 +14,10 @@ function AppNavigator() {
   return (
     <NavigationContainer independent={true}>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="LogIn" component={LogInScreen} />
-        <Stack.Screen name="HeroesScreen" component={HeroesScreen} />
-        <Stack.Screen name="Subscribe" component={Subscribe} />
+        <Stack.Screen name="Bienvenue" component={HomeScreen} />
+        <Stack.Screen name="Connexion" component={LogInScreen} />
+        <Stack.Screen name="Liste des Héros" component={HeroesScreen} />
+        <Stack.Screen name="Inscription" component={Subscribe} />
       </Stack.Navigator>
     </NavigationContainer>
   );

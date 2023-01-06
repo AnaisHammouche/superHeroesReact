@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from '../style/loginStyle';
-// import {useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 import {
   SafeAreaView,
@@ -13,7 +13,8 @@ import {
   TextInput,
 } from 'react-native';
 
-const LogIn = (/* {navigation: {navigate}} */) => {
+const LogIn = () => {
+  const navigation = useNavigation();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -34,12 +35,13 @@ const LogIn = (/* {navigation: {navigate}} */) => {
       alert('le mdp est faux.');
       return;
     }
-    /* const navigation = useNavigation(); */
-    /*  navigate('HeroesScreen'); */
+
     alert('connecté !');
 
+    navigation.navigate('HeroesScreen');
+
     //  pwdConfIsValid ? alert('Bonjour ' + firstName + ' ' + name + ' , votre mot de passe est :' + pwd + ' .'): alert('raté !')
-  }, [email, /* navigate, */ password]);
+  }, [email, navigation, password]);
 
   return (
     <SafeAreaView style={styles.screen}>

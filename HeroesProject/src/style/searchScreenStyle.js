@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 0.1,
     fontSize: 14,
+    marginTop: 'auto',
   },
   arrowContainer: {
     width: 40,
@@ -29,6 +30,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: 10,
+    marginTop: 'auto',
   },
   arrow1: {
     width: 200,

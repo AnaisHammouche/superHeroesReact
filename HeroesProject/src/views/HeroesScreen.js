@@ -19,6 +19,7 @@ import api from '../api/api';
 
 const HeroesScreen = () => {
   const [data, setData] = useState([]);
+//  const navigation = useNavigation();
 
   const loadData = useCallback(async () => {
     console.log(1);
@@ -35,14 +36,21 @@ const HeroesScreen = () => {
   }
 
   const goToDetailHero = useCallback(async () => {
-   /*  const navigation = useNavigation();
+    /*  const navigation = useNavigation();
     navigation.navigate('HeroesScreen'); */
-    alert('bouton cliqué !')
+    alert('bouton cliqué !');
   });
+
+ /* const gotToProfil = useCallback(() => {
+    navigation.navigate('ProfilScreen');
+  }, []);*/
 
   return (
     <SafeAreaView>
-     <Text
+      <TouchableOpacity /*{onPress: {goToProfil}*/>
+        <Text>Profil</Text>
+      </TouchableOpacity>
+      <Text
         style={{
           fontSize: 25,
           fontWeight: 'bold',
@@ -61,7 +69,8 @@ const HeroesScreen = () => {
                 <Image
                   source={{uri: item.image.url}}
                   style={styles.picture}
-                  resizeMode="cover"></Image>
+                  resizeMode="cover"
+                />
               </View>
             </TouchableOpacity>
           );

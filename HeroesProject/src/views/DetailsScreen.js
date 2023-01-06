@@ -1,6 +1,14 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {SafeAreaView, View, StyleSheet, Image, Text} from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import api from '../api/api';
+import {handlePress} from 'react-native-paper/lib/typescript/components/RadioButton/utils';
 
 const LogIn = () => {
   const [data, setData] = useState([]);
@@ -12,6 +20,11 @@ const LogIn = () => {
     setData(res);
     setData2(res2);
   }, []);
+  const [isLiked, setIsLiked] = useState(false);
+
+  const handlePress = () => {
+    setIsLiked(!isLiked);
+  };
 
   useEffect(() => {
     loadData();
@@ -31,6 +44,13 @@ const LogIn = () => {
       </View>
       <View style={styles.container2}>
         <Text style={styles.nom}>{data.name + ''}</Text>
+        <TouchableOpacity onPress={handlePress}>
+          {isLiked ? (
+            <Text style={[styles.coeur, styles.liked]}>❤️</Text>
+          ) : (
+            <Text style={styles.coeur}>🖤</Text>
+          )}
+        </TouchableOpacity>
         <Text style={styles.title}>Biographie du héro</Text>
         <Text style={styles.ego}>Alter ego : {data['alter-egos'] + ''}</Text>
         <Text style={styles.psd}>Pseudonyme(s) : {data.aliases + ''}</Text>
@@ -70,7 +90,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textTransform: 'uppercase',
-    color: 'grey',},
+    color: 'grey',
+  },
   image: {
     width: 170,
     height: 170,
@@ -112,6 +133,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textTransform: 'uppercase',
     color: 'grey',
+  },
+  container3: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'red',
+    marginLeft: 250,
+    flexDirection: 'row',
+  },
+  coeur: {
+    fontSize: 40,
+  },
+  liked: {
+    color: 'red',
   },
 });
 

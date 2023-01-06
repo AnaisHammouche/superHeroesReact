@@ -5,6 +5,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 
 const ProfilScreen = () => {
 
+  const [image, setImage] = useState(null);
 
   const addPhoto = () => { 
     ImagePicker.openPicker({
@@ -13,6 +14,7 @@ const ProfilScreen = () => {
     cropping: true
   }).then(image => {
     console.log(image);
+    setImage();
   });
 };
 
@@ -25,16 +27,13 @@ const ProfilScreen = () => {
       <Text style={styles.title}>PROFIL</Text>
 
 <TouchableOpacity style= {styles.pp} onPress={addPhoto}>
+  <Image></Image>
   </TouchableOpacity>      
 
       <Text style={styles.texts}>Nom d'utilisateur</Text>
       <View style={styles.placeholder}>
       <Text >Remplacer avec le bon PROPS</Text>
      </View>
-      <TouchableOpacity style={styles.profilButton}>
-        <Text style={styles.textButton}>
-            INVITER UN AMI
-        </Text></TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -56,8 +55,7 @@ const styles = StyleSheet.create({
     height: 200,
     width:200,
     borderRadius: 400,
-    backgroundColor: 'grey',
-    borderColor: '#EEBB05',
+    backgroundColor: '#EEBB05',
   },
   texts: {
     color: 'grey',

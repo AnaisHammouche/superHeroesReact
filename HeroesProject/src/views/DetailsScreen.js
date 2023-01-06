@@ -109,30 +109,36 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textTransform: 'uppercase',
     color: 'grey',
+    marginBottom: 25,
+    marginTop: 25,
   },
   psd: {
     fontSize: 18,
     fontWeight: 'bold',
     textTransform: 'uppercase',
     color: 'grey',
+    marginBottom: 25,
   },
   date: {
     fontSize: 18,
     fontWeight: 'bold',
     textTransform: 'uppercase',
     color: 'grey',
+    marginBottom: 25,
   },
   apparition: {
     fontSize: 18,
     fontWeight: 'bold',
     textTransform: 'uppercase',
     color: 'grey',
+    marginBottom: 25,
   },
   publication: {
     fontSize: 18,
     fontWeight: 'bold',
     textTransform: 'uppercase',
     color: 'grey',
+    marginBottom: 25,
   },
   container3: {
     flex: 1,
@@ -144,6 +150,8 @@ const styles = StyleSheet.create({
   },
   coeur: {
     fontSize: 40,
+    marginBottom: 25,
+    marginTop: 25,
   },
   liked: {
     color: 'red',

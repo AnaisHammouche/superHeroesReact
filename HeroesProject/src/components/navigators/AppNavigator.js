@@ -20,7 +20,7 @@ function AppNavigator() {
         <Stack.Screen name="Connexion" component={LogInScreen} />
         <Stack.Screen name="Liste des Héros" component={HeroesScreen} />
         <Stack.Screen name="Inscription" component={Subscribe} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Détails" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

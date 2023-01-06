@@ -32,7 +32,7 @@ const HeroesScreen = ({navigation}) => {
 
   const goToDetailHero = item => {
     const itemId = item.id;
-    navigation.navigate('Details', {idHero: itemId});
+    navigation.navigate('Détails', {idHero: itemId});
   };
 
   if (!data) {
@@ -41,18 +41,7 @@ const HeroesScreen = ({navigation}) => {
 
   return (
     <SafeAreaView>
-      <TouchableOpacity /*{onPress: {goToProfil}*/>
-        <Text>Profil</Text>
-      </TouchableOpacity>
-      <Text
-        style={{
-          fontSize: 25,
-          fontWeight: 'bold',
-          textTransform: 'uppercase',
-          marginLeft: 50,
-        }}>
-        Liste des SuperHéros
-      </Text>
+      
       <FlatList
         data={data}
         renderItem={({item}) => {

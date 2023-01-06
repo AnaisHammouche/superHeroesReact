@@ -1,6 +1,12 @@
 import {Text, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native';
 
+
+
+
 const NavigationBar = () => {
+
+const Tab = createBottomTabNavigator();
+
   return (
 
     <NavigationContainer>
